@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Linkwarden | Presentación Sprint 1</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#f5f7fb;
+      --primary:#2563eb;
+      --secondary:#60a5fa;
+      --accent:#0f172a;
+      --light:#ffffff;
+      --dark:#1e293b;
+      --border:#e2e8f0;
+      --shadow:0 10px 25px rgba(0,0,0,.08);
+      --radius:18px;
+      --gradient:linear-gradient(135deg,#2563eb,#60a5fa);
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:var(--bg);
+      color:var(--dark);
+      line-height:1.7;
+    }
+
+    header{
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:40px 20px;
+      background:
+        linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+        url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1400&auto=format&fit=crop');
+      background-size:cover;
+      background-position:center;
+      color:white;
+    }
+
+    header h1{
+      font-size:clamp(3rem,8vw,6rem);
+      margin-bottom:20px;
+      font-weight:700;
+      letter-spacing:2px;
+    }
+
+    header p{
+      max-width:850px;
+      font-size:1.2rem;
+      opacity:.95;
+      margin-bottom:35px;
+    }
+
+    .heroBtn{
+      display:inline-block;
+      padding:15px 30px;
+      background:var(--primary);
+      color:white;
+      text-decoration:none;
+      border-radius:50px;
+      font-weight:600;
+      transition:.3s ease;
+      box-shadow:var(--shadow);
+    }
+
+    .heroBtn:hover{
+      transform:translateY(-3px);
+      background:#1d4ed8;
+    }
+
+    nav{
+      position:sticky;
+      top:0;
+      z-index:999;
+      backdrop-filter:blur(10px);
+      background:rgba(255,255,255,.92);
+      border-bottom:1px solid rgba(0,0,0,.05);
+    }
+
+    nav ul{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:25px;
+      list-style:none;
+      flex-wrap:wrap;
+      padding:18px 20px;
+    }
+
+    nav a{
+      text-decoration:none;
+      color:var(--primary);
+      font-weight:600;
+      transition:.3s;
+      position:relative;
+    }
+
+    nav a::after{
+      content:'';
+      position:absolute;
+      left:0;
+      bottom:-5px;
+      width:0%;
+      height:2px;
+      background:var(--primary);
+      transition:.3s;
+    }
+
+    nav a:hover::after{
+      width:100%;
+    }
+
+    section{
+      padding:90px 10%;
+    }
+
+    .sectionTitle{
+      font-size:2.5rem;
+      color:var(--primary);
+      margin-bottom:20px;
+      position:relative;
+      display:inline-block;
+    }
+
+    .sectionTitle::after{
+      content:'';
+      width:60%;
+      height:4px;
+      background:var(--secondary);
+      position:absolute;
+      left:0;
+      bottom:-10px;
+      border-radius:10px;
+    }
+
+    .sectionText{
+      margin-top:25px;
+      max-width:900px;
+      color:#555;
+    }
+
+    .cardContainer{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:25px;
+      margin-top:40px;
+    }
+
+    .card{
+      background:var(--light);
+      padding:30px 25px;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      transition:.35s ease;
+      border:1px solid var(--border);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .card::before{
+      content:'';
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:5px;
+      background:var(--gradient);
+    }
+
+    .card:hover{
+      transform:translateY(-8px);
+    }
+
+    .card h3{
+      color:var(--primary);
+      margin-bottom:12px;
+      font-size:1.2rem;
+    }
+
+    .card p{
+      color:#555;
+      font-size:.97rem;
+    }
+
+    .integrante-label{
+      color:var(--primary);
+      font-weight:600;
+      margin-bottom:12px;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      font-size:.85rem;
+    }
+
+    .integrante-nombre{
+      font-size:1rem;
+      font-weight:600;
+      color:var(--dark);
+      line-height:1.5;
+    }
+
+    .repoBtn{
+      display:inline-block;
+      margin-top:30px;
+      background:var(--primary);
+      color:white;
+      padding:14px 26px;
+      text-decoration:none;
+      border-radius:12px;
+      transition:.3s;
+      font-weight:600;
+    }
+
+    .repoBtn:hover{
+      background:#1d4ed8;
+    }
+
+    .tableWrapper{
+      margin-top:40px;
+      overflow-x:auto;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+
+    .cronogramaTable{
+      width:100%;
+      border-collapse:collapse;
+      background:white;
+      overflow:hidden;
+    }
+
+    .cronogramaTable thead{
+      background:var(--gradient);
+      color:white;
+    }
+
+    .cronogramaTable th,
+    .cronogramaTable td{
+      padding:16px;
+      text-align:left;
+      border-bottom:1px solid #eee;
+    }
+
+    .cronogramaTable tbody tr:hover{
+      background:#f8fafc;
+    }
+
+    footer{
+      background:var(--dark);
+      color:white;
+      text-align:center;
+      padding:40px 20px;
+      margin-top:60px;
+    }
+
+    @media(max-width:768px){
+
+      section{
+        padding:70px 7%;
+      }
+
+      nav ul{
+        gap:15px;
+      }
+
+      .sectionTitle{
+        font-size:2rem;
+      }
+
+      header p{
+        font-size:1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>LINKWARDEN</h1>
+
+    <p>
+      Plataforma open source para guardar, organizar y preservar enlaces,
+      artículos y recursos digitales de manera colaborativa.
+    </p>
+
+    <a href="#objetivo" class="heroBtn">Explorar Proyecto</a>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#integrantes">Integrantes</a></li>
+      <li><a href="#objetivo">Objetivo</a></li>
+      <li><a href="#stack">Stack</a></li>
+      <li><a href="#modulos">Características</a></li>
+      <li><a href="#cronograma">Cronograma</a></li>
+    </ul>
+  </nav>
+
+  <section id="integrantes">
+
+    <h2 class="sectionTitle">Grupo A6</h2>
+
+    <div class="cardContainer">
+
+      <div class="card">
+        <p class="integrante-label">Integrante 1</p>
+        <p class="integrante-nombre">
+          BRAVO ARREDONDO<br>
+          CRISTHIAN MATÍAS
+        </p>
+      </div>
+
+      <div class="card">
+        <p class="integrante-label">Integrante 2</p>
+        <p class="integrante-nombre">
+          CASTILLO LAZO RODRIGO<br>
+          ZARÚN
+        </p>
+      </div>
+
+      <div class="card">
+        <p class="integrante-label">Integrante 3</p>
+        <p class="integrante-nombre">
+          CHOQUE QUISPE EDUARDO<br>
+          JHOSUE
+        </p>
+      </div>
+
+      <div class="card">
+        <p class="integrante-label">Integrante 4</p>
+        <p class="integrante-nombre">
+          LUQUE GUEVARA FERNANDO<br>
+          GERSON
+        </p>
+      </div>
+
+      <div class="card">
+        <p class="integrante-label">Integrante 5</p>
+        <p class="integrante-nombre">
+          SUBIA HUAICANE EDSON<br>
+          FABRICIO
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section id="objetivo">
+
+    <h2 class="sectionTitle">Objetivo de Linkwarden</h2>
+
+    <p class="sectionText">
+      Linkwarden permite almacenar, categorizar y preservar enlaces web
+      importantes mediante colecciones compartidas y archivado automático.
+      Su objetivo es evitar la pérdida de información digital y facilitar
+      la gestión colaborativa de recursos.
+    </p>
+
+    <a
+      href="https://github.com/linkwarden/linkwarden"
+      target="_blank"
+      class="repoBtn"
+    >
+      Ver Repositorio Oficial
+    </a>
+
+  </section>
+
+  <section id="stack">
+
+    <h2 class="sectionTitle">Stack Tecnológico</h2>
+
+    <div class="cardContainer">
+
+      <div class="card">
+        <h3>Frontend</h3>
+        <p>Next.js + React + TailwindCSS</p>
+      </div>
+
+      <div class="card">
+        <h3>Backend</h3>
+        <p>Node.js + Prisma</p>
+      </div>
+
+      <div class="card">
+        <h3>Base de Datos</h3>
+        <p>PostgreSQL</p>
+      </div>
+
+      <div class="card">
+        <h3>Infraestructura</h3>
+        <p>Docker + Redis</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section id="modulos">
+
+    <h2 class="sectionTitle">Características de Linkwarden</h2>
+
+    <p class="sectionText">
+      Linkwarden proporciona herramientas modernas para gestionar y
+      preservar contenido web de forma segura y organizada.
+    </p>
+
+    <div class="cardContainer">
+
+      <div class="card">
+        <h3>Gestión de Enlaces</h3>
+        <p>
+          Guardado y organización de enlaces mediante etiquetas,
+          colecciones y filtros personalizados.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Archivado Automático</h3>
+        <p>
+          Conservación de páginas web mediante snapshots para evitar
+          pérdida de contenido online.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Colaboración</h3>
+        <p>
+          Compartición de colecciones y trabajo colaborativo
+          entre equipos y usuarios.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Importación</h3>
+        <p>
+          Importación de marcadores desde navegadores y otras
+          plataformas de gestión de enlaces.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Búsqueda Avanzada</h3>
+        <p>
+          Motor de búsqueda integrado para encontrar enlaces
+          rápidamente dentro de grandes colecciones.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Autenticación</h3>
+        <p>
+          Soporte para autenticación segura y acceso multiusuario
+          en entornos self-hosted.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section id="cronograma">
+
+    <h2 class="sectionTitle">Cronograma Sprint 1</h2>
+
+    <div class="tableWrapper">
+
+      <table class="cronogramaTable">
+
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Issue</th>
+            <th>Etiqueta</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <td>US01</td>
+            <td>
+              <strong>Mapear la arquitectura de Linkwarden</strong><br>
+              Yo como analista, quiero mapear la arquitectura de Linkwarden
+              para comprender el flujo de datos y dependencias.
+              <ul>
+                <li>Revisar la documentación técnica.</li>
+                <li>Identificar los componentes principales.</li>
+              </ul>
+            </td>
+            <td>Analysis</td>
+          </tr>
+
+          <tr>
+            <td>US02</td>
+            <td>
+              <strong>Configurar el entorno Docker</strong><br>
+              Yo como desarrollador, quiero configurar el entorno Docker
+              para garantizar la reproducibilidad del entorno.
+              <ul>
+                <li>Revisar o redactar el archivo docker-compose.yml base del proyecto.</li>
+                <li>Levantar los contenedores y verificar que todos los servicios inicien correctamente.</li>
+              </ul>
+            </td>
+            <td>DevOps</td>
+          </tr>
+
+          <tr>
+            <td>US03</td>
+            <td>
+              <strong>Validar la ejecución local</strong><br>
+              Yo como desarrollador, quiero validar la ejecución local
+              para asegurar que el sistema funcione en mis herramientas.
+              <ul>
+                <li>Acceder a la interfaz de la aplicación mediante localhost.</li>
+                <li>Inspeccionar los logs de los contenedores.</li>
+              </ul>
+            </td>
+            <td>Testing</td>
+          </tr>
+
+          <tr>
+            <td>US04</td>
+            <td>
+              <strong>Registrar el Product Backlog en GitHub Issues</strong><br>
+              Yo como líder de gestión, quiero registrar el Product Backlog
+              en GitHub Issues para organizar el trabajo.
+              <ul>
+                <li>Redactar y cargar cada Historia de Usuario en formato estándar dentro de los Drafts.</li>
+                <li>Asignar las tareas a los miembros responsables del equipo.</li>
+                <li>Establecer la prioridad y fecha.</li>
+              </ul>
+            </td>
+            <td>Management</td>
+          </tr>
+
+          <tr>
+            <td>US05</td>
+            <td>
+              <strong>Configurar GitHub Pages</strong><br>
+              Yo como documentador, quiero configurar GitHub Pages
+              para la documentación técnica.
+              <ul>
+                <li>Crear la página base (index.md o index.html) con la introducción del proyecto.</li>
+              </ul>
+            </td>
+            <td>Documentation</td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </section>
+
+  <footer>
+    <p>Linkwarden - Presentación Sprint 1 | Grupo A6</p>
+  </footer>
+
+</body>
+</html>
