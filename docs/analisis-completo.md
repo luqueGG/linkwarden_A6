@@ -1,6 +1,5 @@
 # Análisis Completo: Linkwarden
 
-> Ejercicio retrospectivo de simulación Scrum+Kanban sobre un proyecto de software existente.
 
 ---
 
@@ -939,7 +938,7 @@ Linkwarden es un gestor de marcadores (bookmarks) colaborativo, auto-hospedado y
 | US12 — Archivar páginas web automáticamente | ✅ Done |
 | US13 — Visualizar versiones preservadas | ✅ Done |
 
-### Sprint 3 — EN CURSO 🚧 (0/47 SP)
+### Sprint 3 — EN CURSO  (0/47 SP)
 
 | US | SP | Estado |
 |---|---|---|
