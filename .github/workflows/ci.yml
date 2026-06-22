@@ -16,12 +16,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: yarn
 
       - name: Enable Corepack
         run: | 
           corepack enable
-          corepack prepare yarn@4.12.0 --activate
+          corepack install
 
       - name: Install deps
         run: yarn install --immutable
