@@ -3,12 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Linkwarden | Documentación Sprints 1 y 2</title>
-
+  <title>Linkwarden | Análisis Retrospectivo Scrum + Kanban</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
   <style>
     :root{
       --bg:#f5f7fb;
@@ -22,809 +20,139 @@
       --radius:18px;
       --gradient:linear-gradient(135deg,#2563eb,#60a5fa);
     }
-
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      scroll-behavior:smooth;
-    }
-
-    body{
-      font-family:'Poppins',sans-serif;
-      background:var(--bg);
-      color:var(--dark);
-      line-height:1.7;
-    }
+    *{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
+    body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--dark);line-height:1.7;}
 
     header{
-      min-height:100vh;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-      padding:40px 20px;
-      background:
-        linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+      min-height:100vh;display:flex;flex-direction:column;justify-content:center;
+      align-items:center;text-align:center;padding:40px 20px;
+      background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
         url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1400&auto=format&fit=crop');
-      background-size:cover;
-      background-position:center;
-      color:white;
+      background-position:center;background-repeat:no-repeat;background-size:cover;
     }
+    header h1{font-size:3.5rem;font-weight:700;color:#fff;margin-bottom:8px;letter-spacing:-1px;}
+    header h1 span{background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+    header p{font-size:1.1rem;color:rgba(255,255,255,.8);max-width:650px;}
+    .headerActions{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap;justify-content:center;}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border-radius:50px;font-weight:500;font-size:.95rem;text-decoration:none;transition:.3s;}
+    .btnPrimary{background:var(--primary);color:#fff;}
+    .btnPrimary:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(37,99,235,.35);}
+    .btnOutline{border:2px solid rgba(255,255,255,.5);color:#fff;}
+    .btnOutline:hover{border-color:#fff;background:rgba(255,255,255,.1);}
 
-    header h1{
-      font-size:clamp(3rem,8vw,6rem);
-      margin-bottom:20px;
-      font-weight:700;
-      letter-spacing:2px;
-    }
+    section{padding:60px 20px;max-width:1200px;margin:0 auto;}
+    .sectionTitle{font-size:1.8rem;font-weight:600;margin-bottom:24px;color:var(--accent);display:inline-block;}
+    .sectionTitle::after{content:'';display:block;width:50px;height:4px;background:var(--gradient);border-radius:4px;margin-top:6px;}
+    .sectionText{font-size:1rem;color:#475569;margin-bottom:30px;max-width:800px;}
 
-    header p{
-      max-width:850px;
-      font-size:1.2rem;
-      opacity:.95;
-      margin-bottom:35px;
-    }
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:30px;}
+    .card{background:var(--light);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);transition:.3s;}
+    .card:hover{transform:translateY(-3px);box-shadow:0 15px 30px rgba(0,0,0,.12);}
+    .card h3{font-size:1.1rem;margin-bottom:8px;color:var(--primary);}
+    .card p{font-size:.9rem;color:#64748b;}
+    .card a{display:inline-block;margin-top:12px;color:var(--primary);font-weight:500;text-decoration:none;}
+    .card a:hover{text-decoration:underline;}
 
-    .heroBtn{
-      display:inline-block;
-      padding:15px 30px;
-      background:var(--primary);
-      color:white;
-      text-decoration:none;
-      border-radius:50px;
-      font-weight:600;
-      transition:.3s ease;
-      box-shadow:var(--shadow);
-    }
+    .tableWrapper{overflow-x:auto;}
+    table{width:100%;border-collapse:collapse;background:var(--light);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);}
+    thead{background:var(--gradient);color:#fff;}
+    th{padding:14px 18px;text-align:left;font-weight:500;font-size:.9rem;}
+    td{padding:12px 18px;border-bottom:1px solid var(--border);font-size:.9rem;}
+    tr:last-child td{border-bottom:none;}
+    tr:hover td{background:#f8fafc;}
+    .badge{display:inline-block;padding:3px 12px;border-radius:20px;font-size:.8rem;font-weight:500;}
+    .badge-done{background:#d1fae5;color:#065f46;}
+    .badge-progress{background:#dbeafe;color:#1e40af;}
+    .badge-todo{background:#fef3c7;color:#92400e;}
 
-    .heroBtn:hover{
-      transform:translateY(-3px);
-      background:#1d4ed8;
-    }
-
-    nav{
-      position:sticky;
-      top:0;
-      z-index:999;
-      backdrop-filter:blur(10px);
-      background:rgba(255,255,255,.92);
-      border-bottom:1px solid rgba(0,0,0,.05);
-    }
-
-    nav ul{
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      gap:25px;
-      list-style:none;
-      flex-wrap:wrap;
-      padding:18px 20px;
-    }
-
-    nav a{
-      text-decoration:none;
-      color:var(--primary);
-      font-weight:600;
-      transition:.3s;
-      position:relative;
-    }
-
-    nav a::after{
-      content:'';
-      position:absolute;
-      left:0;
-      bottom:-5px;
-      width:0%;
-      height:2px;
-      background:var(--primary);
-      transition:.3s;
-    }
-
-    nav a:hover::after{
-      width:100%;
-    }
-
-    section{
-      padding:90px 10%;
-    }
-
-    .sectionTitle{
-      font-size:2.5rem;
-      color:var(--primary);
-      margin-bottom:20px;
-      position:relative;
-      display:inline-block;
-    }
-
-    .sectionTitle::after{
-      content:'';
-      width:60%;
-      height:4px;
-      background:var(--secondary);
-      position:absolute;
-      left:0;
-      bottom:-10px;
-      border-radius:10px;
-    }
-
-    .sectionText{
-      margin-top:25px;
-      max-width:900px;
-      color:#555;
-    }
-
-    .cardContainer{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:25px;
-      margin-top:40px;
-    }
-
-    .card{
-      background:var(--light);
-      padding:30px 25px;
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      transition:.35s ease;
-      border:1px solid var(--border);
-      position:relative;
-      overflow:hidden;
-    }
-
-    .card::before{
-      content:'';
-      position:absolute;
-      top:0;
-      left:0;
-      width:100%;
-      height:5px;
-      background:var(--gradient);
-    }
-
-    .card:hover{
-      transform:translateY(-8px);
-    }
-
-    .card h3{
-      color:var(--primary);
-      margin-bottom:12px;
-      font-size:1.2rem;
-    }
-
-    .card p{
-      color:#555;
-      font-size:.97rem;
-    }
-
-    .integrante-label{
-      color:var(--primary);
-      font-weight:600;
-      margin-bottom:12px;
-      text-transform:uppercase;
-      letter-spacing:1px;
-      font-size:.85rem;
-    }
-
-    .integrante-nombre{
-      font-size:1rem;
-      font-weight:600;
-      color:var(--dark);
-      line-height:1.5;
-    }
-
-    .repoBtn{
-      display:inline-block;
-      margin-top:30px;
-      background:var(--primary);
-      color:white;
-      padding:14px 26px;
-      text-decoration:none;
-      border-radius:12px;
-      transition:.3s;
-      font-weight:600;
-    }
-
-    .repoBtn:hover{
-      background:#1d4ed8;
-    }
-
-    .tableWrapper{
-      margin-top:40px;
-      overflow-x:auto;
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-    }
-
-    .cronogramaTable{
-      width:100%;
-      border-collapse:collapse;
-      background:white;
-      overflow:hidden;
-    }
-
-    .cronogramaTable thead{
-      background:var(--gradient);
-      color:white;
-    }
-
-    .cronogramaTable th,
-    .cronogramaTable td{
-      padding:16px;
-      text-align:left;
-      border-bottom:1px solid #eee;
-    }
-
-    .cronogramaTable tbody tr:hover{
-      background:#f8fafc;
-    }
-
-    footer{
-      background:var(--dark);
-      color:white;
-      text-align:center;
-      padding:40px 20px;
-      margin-top:60px;
-    }
-
-    @media(max-width:768px){
-
-      section{
-        padding:70px 7%;
-      }
-
-      nav ul{
-        gap:15px;
-      }
-
-      .sectionTitle{
-        font-size:2rem;
-      }
-
-      header p{
-        font-size:1rem;
-      }
-    }
+    footer{text-align:center;padding:30px 20px;font-size:.85rem;color:#94a3b8;border-top:1px solid var(--border);}
   </style>
 </head>
-
 <body>
 
-  <header>
-    <h1>LINKWARDEN</h1>
-
-    <p>
-      Plataforma open source para guardar, organizar y preservar enlaces,
-      artículos y recursos digitales de manera colaborativa.
-    </p>
-
-    <a href="#objetivo" class="heroBtn">Explorar Proyecto</a>
-  </header>
-
-  <nav>
-    <ul>
-      <li><a href="#integrantes">Integrantes</a></li>
-      <li><a href="#roles">Roles</a></li>
-      <li><a href="#objetivo">Objetivo</a></li>
-      <li><a href="#stack">Stack</a></li>
-      <li><a href="#modulos">Características</a></li>
-      <li><a href="#cronograma">Cronograma</a></li>
-    </ul>
-  </nav>
-
-  <section id="integrantes">
-
-    <h2 class="sectionTitle">Grupo A6</h2>
-
-    <div class="cardContainer">
-
-      <div class="card">
-        <p class="integrante-label">Integrante 1</p>
-        <p class="integrante-nombre">
-          BRAVO ARREDONDO<br>
-          CRISTHIAN MATÍAS
-        </p>
-      </div>
-
-      <div class="card">
-        <p class="integrante-label">Integrante 2</p>
-        <p class="integrante-nombre">
-          CASTILLO LAZO RODRIGO<br>
-          ZARÚN
-        </p>
-      </div>
-
-      <div class="card">
-        <p class="integrante-label">Integrante 3</p>
-        <p class="integrante-nombre">
-          CHOQUE QUISPE EDUARDO<br>
-          JHOSUE
-        </p>
-      </div>
-
-      <div class="card">
-        <p class="integrante-label">Integrante 4</p>
-        <p class="integrante-nombre">
-          LUQUE GUEVARA FERNANDO<br>
-          GERSON
-        </p>
-      </div>
-
-      <div class="card">
-        <p class="integrante-label">Integrante 5</p>
-        <p class="integrante-nombre">
-          SUBIA HUAICANE EDSON<br>
-          FABRICIO
-        </p>
-      </div>
-
-    </div>
-
-  </section>
-
-  <section id="roles">
-
-    <h2 class="sectionTitle">Roles del Equipo</h2>
-
-    <p class="sectionText">
-      Distribución de responsabilidades dentro del equipo Scrum
-      para el desarrollo y documentación del proyecto Linkwarden.
-    </p>
-
-    <div class="cardContainer">
-
-      <div class="card">
-        <h3>Scrum Master</h3>
-        <p>
-          Coordina las actividades del equipo, gestiona el tablero
-          Kanban en GitHub Projects y asegura la comunicación efectiva
-          entre los miembros.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Product Owner</h3>
-        <p>
-          Encargado de representar los intereses de los stakeholders
-          y gestionar el valor del producto durante el desarrollo.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Ingeniero DevOps</h3>
-        <p>
-          Responsable de la configuración del pipeline CI/CD usando
-          GitHub Actions, la gestión de Docker Compose y el despliegue
-          automático hacia entornos de staging.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Arquitecto de Software / Analista</h3>
-        <p>
-          Responsable de comprender la arquitectura del sistema,
-          analizar técnicamente el código y documentar decisiones
-          técnicas en los Issues del proyecto.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Desarrollador / QA</h3>
-        <p>
-          Encargado de aplicar mejoras o refactorizaciones,
-          ejecutar pruebas y asegurar la calidad y estabilidad
-          del producto.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Documentador Técnico</h3>
-        <p>
-          Responsable de mantener GitHub Pages, garantizar el
-          cumplimiento del formato IEEE y publicar los avances
-          técnicos del proyecto.
-        </p>
-      </div>
-
-    </div>
-
-  </section>
-
-  <section id="objetivo">
-
-    <h2 class="sectionTitle">Objetivo de Linkwarden</h2>
-
-    <p class="sectionText">
-      Linkwarden permite almacenar, categorizar y preservar enlaces web
-      importantes mediante colecciones compartidas y archivado automático.
-      Su objetivo es evitar la pérdida de información digital y facilitar
-      la gestión colaborativa de recursos.
-    </p>
-
-    <a
-      href="https://github.com/linkwarden/linkwarden"
-      target="_blank"
-      class="repoBtn"
-    >
-      Ver Repositorio Oficial
-    </a>
-
-  </section>
-
-  <section id="stack">
-
-    <h2 class="sectionTitle">Stack Tecnológico</h2>
-
-    <div class="cardContainer">
-
-      <div class="card">
-        <h3>Frontend Web</h3>
-        <p>Next.js 15 + React 19 + TailwindCSS 3 + DaisyUI</p>
-      </div>
-
-      <div class="card">
-        <h3>Frontend Mobile</h3>
-        <p>React Native 0.81 + Expo SDK 54 + NativeWind</p>
-      </div>
-
-      <div class="card">
-        <h3>Backend / API</h3>
-        <p>Next.js API Routes + NextAuth.js + Stripe</p>
-      </div>
-
-      <div class="card">
-        <h3>Base de Datos</h3>
-        <p>PostgreSQL 16 + Prisma 6 ORM</p>
-      </div>
-
-      <div class="card">
-        <h3>Búsqueda</h3>
-        <p>MeiliSearch + fuse.js</p>
-      </div>
-
-      <div class="card">
-        <h3>Estado</h3>
-        <p>TanStack React Query + Zustand</p>
-      </div>
-
-      <div class="card">
-        <h3>Worker / Archiving</h3>
-        <p>tsx + Playwright + Mozilla Readability</p>
-      </div>
-
-      <div class="card">
-        <h3>Infraestructura</h3>
-        <p>Docker + Docker Compose</p>
-      </div>
-
-      <div class="card">
-        <h3>AI / ML</h3>
-        <p>Vercel AI SDK + Ollama + OpenAI/Anthropic</p>
-      </div>
-
-    </div>
-
-  </section>
-
-  <section id="modulos">
-
-    <h2 class="sectionTitle">Características de Linkwarden</h2>
-
-    <p class="sectionText">
-      Linkwarden proporciona herramientas modernas para gestionar y
-      preservar contenido web de forma segura y organizada.
-    </p>
-
-    <div class="cardContainer">
-
-      <div class="card">
-        <h3>Gestión de Enlaces</h3>
-        <p>
-          Guardado y organización de enlaces mediante etiquetas,
-          colecciones y filtros personalizados.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Archivado Automático</h3>
-        <p>
-          Conservación de páginas web mediante snapshots para evitar
-          pérdida de contenido online.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Colaboración</h3>
-        <p>
-          Compartición de colecciones y trabajo colaborativo
-          entre equipos y usuarios.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Importación</h3>
-        <p>
-          Importación de marcadores desde navegadores y otras
-          plataformas de gestión de enlaces.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Búsqueda Avanzada</h3>
-        <p>
-          Motor de búsqueda integrado para encontrar enlaces
-          rápidamente dentro de grandes colecciones.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Autenticación</h3>
-        <p>
-          Soporte para autenticación segura y acceso multiusuario
-          en entornos self-hosted.
-        </p>
-      </div>
-
-    </div>
-
-  </section>
-
-  <section id="cronograma">
-
-    <h2 class="sectionTitle">Sprint 1</h2>
-    <p class="sectionText">
-      OBJETIVO: Establecer las bases técnicas y organizativas mediante el mapeo arquitectónico, la configuración del entorno local reproducible con Docker y el ordenamiento del backlog y la documentación en GitHub.
-    </p>
-    <div class="tableWrapper">
-
-      <table class="cronogramaTable">
-
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Issue</th>
-            <th>Prioridad</th>
-            <th>Estimación</th>
-          </tr>
-        </thead>
-
-        <tbody>
-
-          <tr>
-            <td>US01</td>
-            <td>
-              <strong>Mapear la arquitectura de Linkwarden</strong><br>
-              Como investigador, quiero mapear la arquitectura de Linkwarden
-              para comprender el flujo de datos y garantizar la correcta administración del sistema.
-              <ul>
-                <li>Revisar la documentación técnica.</li>
-                <li>Identificar los componentes principales.</li>
-              </ul>
-            </td>
-            <td>Alta</td>
-            <td>8</td>
-          </tr>
-
-          <tr>
-            <td>US02</td>
-            <td>
-              <strong>Configurar el entorno Docker</strong><br>
-              Como investigador, quiero configurar el entorno Docker de Linkwarden
-              para garantizar un ambiente de desarrollo reproducible y consistente.
-              <ul>
-                <li>Revisar o redactar el archivo docker-compose.yml base del proyecto.</li>
-                <li>Levantar los contenedores y verificar que todos los servicios inicien correctamente.</li>
-              </ul>
-            </td>
-            <td>Alta</td>
-            <td>5</td>
-          </tr>
-
-          <tr>
-            <td>US03</td>
-            <td>
-              <strong>Registrar el Product Backlog</strong><br>
-              Como docente, quiero registrar el Product Backlog en GitHub Projects
-              para organizar y priorizar el trabajo del equipo de desarrollo.
-              <ul>
-                <li>Crear el GitHub Project en el repositorio.</li>
-                <li>Registrar cada historia de usuario en formato estándar.</li>
-              </ul>
-            </td>
-            <td>Alta</td>
-            <td>3</td>
-          </tr>
-
-          <tr>
-            <td>US04</td>
-            <td>
-              <strong>Validar la ejecución local de Linkwarden</strong><br>
-              Como usuario promedio, quiero validar la ejecución local de Linkwarden
-              para asegurarme de que la aplicación funciona correctamente en mi equipo.
-              <ul>
-                <li>Iniciar los contenedores con docker compose up.</li>
-                <li>Acceder a la aplicación y probar funcionalidades básicas.</li>
-              </ul>
-            </td>
-            <td>Alta</td>
-            <td>3</td>
-          </tr>
-
-          <tr>
-            <td>US05</td>
-            <td>
-              <strong>Publicar documentación técnica en GitHub Pages</strong><br>
-              Como usuario promedio, quiero acceder a la documentación técnica publicada en GitHub Pages
-              para conocer el funcionamiento, la arquitectura y la configuración del sistema.
-              <ul>
-                <li>Crear la página base index.html con la introducción del proyecto.</li>
-              </ul>
-            </td>
-            <td>Media</td>
-            <td>5</td>
-          </tr>
-
-        </tbody>
-
-      </table>
-
-    </div><br><br>
-    <h2 class="sectionTitle">Sprint 2</h2>
-    <p class="sectionText">
-      OBJETIVO: Asegurar la automatización y calidad del desarrollo implementando un pipeline CI, estandarizando las revisiones de código y desplegando una versión demo funcional en el entorno de Staging.
-    </p>
-    <div class="tableWrapper">
-
-      <table class="cronogramaTable">
-
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Issue</th>
-            <th>Prioridad</th>
-            <th>Estimación</th>
-          </tr>
-        </thead>
-
-        <tbody>
-
-          <tr>
-            <td>US06</td>
-            <td>
-              <strong>Implementar pipeline de integración continua</strong><br>
-              Como investigador, quiero implementar un pipeline de integración continua (CI)
-              para automatizar la compilación y ejecución de pruebas del proyecto.
-            </td>
-            <td>Alta</td>
-            <td>8</td>
-          </tr>
-
-          <tr>
-            <td>US07</td>
-            <td>
-              <strong>Desplegar demo funcional en Staging</strong><br>
-              Como docente, quiero acceder a una demo funcional en un entorno de staging
-              para validar el producto antes de su entrega final.
-            </td>
-            <td>Alta</td>
-            <td>5</td>
-          </tr>
-
-          <tr>
-            <td>US08</td>
-            <td>
-              <strong>Registrar decisiones técnicas en Issues</strong><br>
-              Como investigador, quiero consultar las decisiones técnicas registradas en Issues
-              para mantener la trazabilidad del proyecto.
-            </td>
-            <td>Media</td>
-            <td>5</td>
-          </tr>
-
-          <tr>
-            <td>US09</td>
-            <td>
-              <strong>Establecer revisión de código colaborativa</strong><br>
-              Como investigador, quiero establecer un proceso de revisión de código colaborativa
-              para asegurar la calidad del software y el cumplimiento de estándares.
-            </td>
-            <td>Alta</td>
-            <td>5</td>
-          </tr>
-
-          <tr>
-            <td>US10</td>
-            <td>
-              <strong>Actualizar documentación técnica en GitHub Pages</strong><br>
-              Como usuario promedio, quiero consultar la documentación técnica actualizada en GitHub Pages
-              para mantenerme informado sobre los avances del proyecto.
-              <ul>
-                <li>Recopilar la documentación generada en Sprints 1 y 2.</li>
-                <li>Subir los cambios a la rama de documentación.</li>
-              </ul>
-            </td>
-            <td>Media</td>
-            <td>3</td>
-          </tr>
-
-        </tbody>
-
-      </table>
-
-    </div>
-
-    <br><br>
-    <h2 class="sectionTitle">Sprint 3 (Próximo)</h2>
-    <p class="sectionText">
-      OBJETIVO: Implementar mejoras finales, automatizar el despliegue continuo (CD) y redactar el artículo técnico final.
-    </p>
-    <div class="tableWrapper">
-
-      <table class="cronogramaTable">
-
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Issue</th>
-            <th>Prioridad</th>
-            <th>Estimación</th>
-          </tr>
-        </thead>
-
-        <tbody>
-
-          <tr>
-            <td>US11</td>
-            <td>
-              <strong>Implementar mejoras finales</strong><br>
-              Como usuario promedio, quiero que se implementen mejoras finales en la aplicación
-              para disfrutar de un producto estable, completo y listo para su uso.
-            </td>
-            <td>Alta</td>
-            <td>8</td>
-          </tr>
-
-          <tr>
-            <td>US12</td>
-            <td>
-              <strong>Automatizar despliegue continuo</strong><br>
-              Como investigador, quiero automatizar el despliegue continuo (CD) del proyecto
-              para garantizar entregas frecuentes y confiables del producto.
-            </td>
-            <td>Alta</td>
-            <td>8</td>
-          </tr>
-
-          <tr>
-            <td>US13</td>
-            <td>
-              <strong>Redactar artículo técnico final en GitHub Pages</strong><br>
-              Como usuario promedio, quiero acceder al artículo técnico final en GitHub Pages
-              para conocer el proceso completo del proyecto y las decisiones tomadas.
-            </td>
-            <td>Media</td>
-            <td>13</td>
-          </tr>
-
-        </tbody>
-
-      </table>
-
-    </div>
-    <br>
-    <a
-      href="https://github.com/users/luqueGG/projects/7"
-      target="_blank"
-      class="repoBtn"
-    >
-      Ver Project Board
-    </a>
-  </section>
-
-  <footer>
-    <p>Linkwarden - Documentación Sprints 1 y 2 | Grupo A6</p>
-  </footer>
+<header>
+  <h1>Linkwarden <span>A6</span></h1>
+  <p>Ejercicio académico: reconstrucción retrospectiva de la gestión del proyecto Linkwarden utilizando Scrum + Kanban.</p>
+  <div class="headerActions">
+    <a class="btn btnPrimary" href="analisis-completo.md">📄 Ver Análisis Completo</a>
+    <a class="btn btnOutline" href="https://github.com/users/luqueGG/projects/7" target="_blank">📋 GH Project</a>
+  </div>
+</header>
+
+<section>
+  <h2 class="sectionTitle">Grupo A6</h2>
+  <div class="tableWrapper">
+    <table>
+      <thead><tr><th>#</th><th>Integrante</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>BRAVO ARREDONDO CRISTHIAN MATÍAS</td></tr>
+        <tr><td>2</td><td>CASTILLO LAZO RODRIGO ZARÚN</td></tr>
+        <tr><td>3</td><td>CHOQUE QUISPE EDUARDO JHOSUE</td></tr>
+        <tr><td>4</td><td>LUQUE GUEVARA FERNANDO GERSON</td></tr>
+        <tr><td>5</td><td>SUBIA HUAICANE EDSON FABRICIO</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2 class="sectionTitle">Entregables</h2>
+  <p class="sectionText">Documento completo con los 10 artefactos solicitados:</p>
+  <div class="cards">
+    <div class="card"><h3>1. Análisis del Proyecto</h3><p>47 funcionalidades reales, 5 roles de usuario, 14 modelos de datos, 45+ endpoints API.</p></div>
+    <div class="card"><h3>2. Épicas</h3><p>6 épicas (E01–E06) agrupadas por dominio funcional.</p></div>
+    <div class="card"><h3>3. Historias de Usuario</h3><p>21 US (US01–US21) con formato INVEST, criterios de aceptación, tareas técnicas y prioridad.</p></div>
+    <div class="card"><h3>4. Sprint Planning</h3><p>3 sprints de 2 semanas, ~35 SP de velocidad promedio.</p></div>
+    <div class="card"><h3>5. Sprint Backlog</h3><p>Tareas técnicas desglosadas con horas estimadas por US.</p></div>
+    <div class="card"><h3>6. Tableros Kanban</h3><p>Product Backlog → To Do → In Progress → Testing → Done por sprint.</p></div>
+    <div class="card"><h3>7. Daily Scrums</h3><p>Reuniones diarias simuladas para los 3 sprints.</p></div>
+    <div class="card"><h3>8. Sprint Review</h3><p>Sprint 1 (32/32 SP) y Sprint 2 (39/39 SP) completados al 100%.</p></div>
+    <div class="card"><h3>9. Sprint Retrospective</h3><p>Qué salió bien, qué mejorar, acciones concretas.</p></div>
+    <div class="card"><h3>10. Resumen Final</h3><p>118 SP totales, 6 semanas estimadas, 3 sprints.</p></div>
+  </div>
+  <p style="margin-top:30px;text-align:center;">
+    <a class="btn btnPrimary" href="analisis-completo.md">📄 Leer Análisis Completo</a>
+  </p>
+</section>
+
+<section>
+  <h2 class="sectionTitle">Estado del Proyecto</h2>
+  <div class="tableWrapper">
+    <table>
+      <thead><tr><th>Sprint</th><th>US</th><th>SP</th><th>Estado</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Sprint 1</strong><br><small>Fundación</small></td><td>US01–US06</td><td>32</td><td><span class="badge badge-done">✅ Completado</span></td></tr>
+        <tr><td><strong>Sprint 2</strong><br><small>Descubrimiento y Preservación</small></td><td>US07–US10, US12–US13</td><td>39</td><td><span class="badge badge-done">✅ Completado</span></td></tr>
+        <tr><td><strong>Sprint 3</strong><br><small>Colaboración y Madurez</small></td><td>US11, US14–US21</td><td>47</td><td><span class="badge badge-progress">🚧 En curso</span></td></tr>
+        <tr style="font-weight:600;background:#f1f5f9;"><td><strong>Total</strong></td><td><strong>21 US</strong></td><td><strong>118 SP</strong></td><td><strong>71/118 completados</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2 class="sectionTitle">Stack Tecnológico</h2>
+  <div class="tableWrapper">
+    <table>
+      <thead><tr><th>Capa</th><th>Tecnologías</th></tr></thead>
+      <tbody>
+        <tr><td>Frontend</td><td>Next.js 15, React 19, TypeScript, Tailwind CSS, daisyUI, shadcn/ui</td></tr>
+        <tr><td>Estado</td><td>TanStack Query, Zustand</td></tr>
+        <tr><td>Backend</td><td>Next.js API Routes, Prisma 6, PostgreSQL 16</td></tr>
+        <tr><td>Autenticación</td><td>NextAuth.js (40+ proveedores SSO)</td></tr>
+        <tr><td>Búsqueda</td><td>Meilisearch</td></tr>
+        <tr><td>Worker/Preservación</td><td>Playwright, Mozilla Readability, AI SDK</td></tr>
+        <tr><td>Pagos</td><td>Stripe</td></tr>
+        <tr><td>Infraestructura</td><td>Docker, Docker Compose, Yarn 4 (monorepo)</td></tr>
+        <tr><td>Almacenamiento</td><td>Local filesystem / AWS S3 compatible</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<footer>
+  <p>Linkwarden A6 — Análisis Retrospectivo Scrum + Kanban</p>
+</footer>
 
 </body>
 </html>
