@@ -1145,7 +1145,7 @@ Linkwarden es un gestor de marcadores (bookmarks) colaborativo, auto-hospedado y
 
 ## 10. Sprint Retrospective — Sprint 1 y 2
 
-### Qué salió bien 🌟
+### Qué salió bien 
 
 1. **Planificación realista:** 100% de completitud en ambos Sprints. Las estimaciones fueron precisas.
 2. **Arquitectura desacoplada:** Separar worker de archivado del frontend permitió desarrollo paralelo.
@@ -1153,14 +1153,14 @@ Linkwarden es un gestor de marcadores (bookmarks) colaborativo, auto-hospedado y
 4. **Preservación completa:** Los 4 formatos de archivado funcionan correctamente con cola de procesamiento.
 5. **MVP sólido:** El producto ya cubre el ciclo completo: guardar → organizar → buscar → preservar.
 
-### Qué se puede mejorar 🔧
+### Qué se puede mejorar 
 
 1. **Cobertura de pruebas:** Faltan tests unitarios en los controladores. Se agregaron al DoD pero no se cumplió completamente.
 2. **Documentación de API:** Los endpoints no tienen documentación OpenAPI. Difiero a Sprint 3.
 3. **Monitoreo del worker:** La cola de archivado carece de métricas y logs estructurados.
 4. **Rendimiento en listas grandes:** La carga de colecciones con +1000 links muestra latencia. Optimizar con paginación por cursor.
 
-### Acciones de Mejora 📋
+### Acciones de Mejora 
 
 | Acción | Responsable | Sprint |
 |---|---|---|
