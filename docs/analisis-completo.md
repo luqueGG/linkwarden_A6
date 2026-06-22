@@ -955,7 +955,7 @@ Linkwarden es un gestor de marcadores (bookmarks) colaborativo, auto-hospedado y
 
 ---
 
-## 7. Simulación de Daily Scrums
+## 7. Daily Scrums
 
 ### Sprint 1 — Días 1 al 10
 
