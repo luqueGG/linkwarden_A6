@@ -584,7 +584,8 @@
           <tr>
             <th>#</th>
             <th>Issue</th>
-            <th>Etiqueta</th>
+            <th>Prioridad</th>
+            <th>Estimación</th>
           </tr>
         </thead>
 
@@ -594,70 +595,74 @@
             <td>US01</td>
             <td>
               <strong>Mapear la arquitectura de Linkwarden</strong><br>
-              Yo como analista, quiero mapear la arquitectura de Linkwarden
-              para comprender el flujo de datos y dependencias.
+              Como administrador de sistemas, quiero mapear la arquitectura de Linkwarden
+              para comprender el flujo de datos y garantizar la correcta administración del sistema.
               <ul>
                 <li>Revisar la documentación técnica.</li>
                 <li>Identificar los componentes principales.</li>
               </ul>
             </td>
-            <td>Analysis</td>
+            <td>Alta</td>
+            <td>8</td>
           </tr>
 
           <tr>
             <td>US02</td>
             <td>
               <strong>Configurar el entorno Docker</strong><br>
-              Yo como desarrollador, quiero configurar el entorno Docker
-              para garantizar la reproducibilidad del entorno.
+              Como administrador de sistemas, quiero configurar el entorno Docker de Linkwarden
+              para garantizar un ambiente de desarrollo reproducible y consistente.
               <ul>
                 <li>Revisar o redactar el archivo docker-compose.yml base del proyecto.</li>
                 <li>Levantar los contenedores y verificar que todos los servicios inicien correctamente.</li>
               </ul>
             </td>
-            <td>DevOps</td>
+            <td>Alta</td>
+            <td>5</td>
           </tr>
 
           <tr>
             <td>US03</td>
             <td>
-              <strong>Validar la ejecución local</strong><br>
-              Yo como desarrollador, quiero validar la ejecución local
-              para asegurar que el sistema funcione en mis herramientas.
+              <strong>Registrar el Product Backlog</strong><br>
+              Como gerente del proyecto, quiero registrar el Product Backlog en GitHub Projects
+              para organizar y priorizar el trabajo del equipo de desarrollo.
               <ul>
-                <li>Acceder a la interfaz de la aplicación mediante localhost.</li>
-                <li>Inspeccionar los logs de los contenedores.</li>
+                <li>Crear el GitHub Project en el repositorio.</li>
+                <li>Registrar cada historia de usuario en formato estándar.</li>
               </ul>
             </td>
-            <td>Testing</td>
+            <td>Alta</td>
+            <td>3</td>
           </tr>
 
           <tr>
             <td>US04</td>
             <td>
-              <strong>Registrar el Product Backlog en GitHub Issues</strong><br>
-              Yo como líder de gestión, quiero registrar el Product Backlog
-              en GitHub Issues para organizar el trabajo.
+              <strong>Validar la ejecución local de Linkwarden</strong><br>
+              Como usuario del sistema, quiero validar la ejecución local de Linkwarden
+              para asegurarme de que la aplicación funciona correctamente en mi equipo.
               <ul>
-                <li>Redactar y cargar cada Historia de Usuario en formato estándar dentro de los Drafts.</li>
-                <li>Asignar las tareas a los miembros responsables del equipo.</li>
-                <li>Establecer la prioridad y fecha.</li>
+                <li>Iniciar los contenedores con docker compose up.</li>
+                <li>Acceder a la aplicación y probar funcionalidades básicas.</li>
               </ul>
             </td>
-            <td>Management</td>
+            <td>Alta</td>
+            <td>3</td>
           </tr>
 
           <tr>
             <td>US05</td>
             <td>
-              <strong>Configurar GitHub Pages</strong><br>
-              Yo como documentador, quiero configurar GitHub Pages
-              para la documentación técnica.
+              <strong>Publicar documentación técnica en GitHub Pages</strong><br>
+              Como usuario del proyecto, quiero acceder a la documentación técnica publicada en GitHub Pages
+              para conocer el funcionamiento, la arquitectura y la configuración del sistema.
               <ul>
-                <li>Crear la página base (index.md o index.html) con la introducción del proyecto.</li>
+                <li>Crear la página base index.html con la introducción del proyecto.</li>
               </ul>
             </td>
-            <td>Documentation</td>
+            <td>Media</td>
+            <td>5</td>
           </tr>
 
         </tbody>
@@ -677,7 +682,8 @@
           <tr>
             <th>#</th>
             <th>Issue</th>
-            <th>Etiqueta</th>
+            <th>Prioridad</th>
+            <th>Estimación</th>
           </tr>
         </thead>
 
@@ -686,53 +692,60 @@
           <tr>
             <td>US06</td>
             <td>
-              <strong>Implementar un pipeline CI</strong><br>
-              Yo como DevOps, quiero implementar un pipeline CI para automatizar la compilación y ejecución de pruebas del proyecto.
-              
+              <strong>Implementar pipeline de integración continua</strong><br>
+              Como administrador de sistemas, quiero implementar un pipeline de integración continua (CI)
+              para automatizar la compilación y ejecución de pruebas del proyecto.
             </td>
-            <td>DevOps</td>
+            <td>Alta</td>
+            <td>8</td>
           </tr>
 
           <tr>
             <td>US07</td>
             <td>
-              <strong>Desplegar una demo funcional en Staging</strong><br>
-              Yo como QA, quiero acceder a una demo funcional en staging para validar el producto antes de su entrega final.
+              <strong>Desplegar demo funcional en Staging</strong><br>
+              Como stakeholder del proyecto, quiero acceder a una demo funcional en un entorno de staging
+              para validar el producto antes de su entrega final.
             </td>
-            <td>Testing</td>
+            <td>Alta</td>
+            <td>5</td>
           </tr>
 
           <tr>
             <td>US08</td>
             <td>
-              <strong>Realizar revisión de código</strong><br>
-              Yo como desarrollador, quiero realizar revisión de código colaborativa para asegurar la calidad y el cumplimiento de estándares.
-              
+              <strong>Registrar decisiones técnicas en Issues</strong><br>
+              Como stakeholder del proyecto, quiero consultar las decisiones técnicas registradas en Issues
+              para mantener la trazabilidad del proyecto.
             </td>
-            <td>Development</td>
+            <td>Media</td>
+            <td>5</td>
           </tr>
 
           <tr>
             <td>US09</td>
             <td>
-              <strong>Registrar decisiones técnicas en Issues</strong><br>
-              Yo como documentador, quiero registrar decisiones técnicas en Issues para mantener la trazabilidad del proyecto.
-              
+              <strong>Establecer revisión de código colaborativa</strong><br>
+              Como administrador del proyecto, quiero establecer un proceso de revisión de código colaborativa
+              para asegurar la calidad del software y el cumplimiento de estándares.
             </td>
-            <td>Documentation</td>
+            <td>Alta</td>
+            <td>5</td>
           </tr>
 
           <tr>
             <td>US10</td>
             <td>
-              <strong>Configurar GitHub Pages #2</strong><br>
-              Yo como documentador, quiero actualizar GitHub Pages con los avances de documentación para mantenerla actualizada.
+              <strong>Actualizar documentación técnica en GitHub Pages</strong><br>
+              Como usuario del proyecto, quiero consultar la documentación técnica actualizada en GitHub Pages
+              para mantenerme informado sobre los avances del proyecto.
               <ul>
                 <li>Recopilar la documentación generada en Sprints 1 y 2.</li>
                 <li>Subir los cambios a la rama de documentación.</li>
               </ul>
             </td>
-            <td>Documentation</td>
+            <td>Media</td>
+            <td>3</td>
           </tr>
 
         </tbody>
@@ -754,7 +767,8 @@
           <tr>
             <th>#</th>
             <th>Issue</th>
-            <th>Etiqueta</th>
+            <th>Prioridad</th>
+            <th>Estimación</th>
           </tr>
         </thead>
 
@@ -763,28 +777,34 @@
           <tr>
             <td>US11</td>
             <td>
-              <strong>Mejoras finales</strong><br>
-              Implementar mejoras finales y corregir issues pendientes para completar el alcance del proyecto.
+              <strong>Implementar mejoras finales</strong><br>
+              Como usuario de Linkwarden, quiero que se implementen mejoras finales en la aplicación
+              para disfrutar de un producto estable, completo y listo para su uso.
             </td>
-            <td>Development</td>
+            <td>Alta</td>
+            <td>8</td>
           </tr>
 
           <tr>
             <td>US12</td>
             <td>
-              <strong>Mejoras Pipeline CI/CD</strong><br>
-              Automatizar el despliegue continuo (CD) para garantizar entregas frecuentes y confiables.
+              <strong>Automatizar despliegue continuo</strong><br>
+              Como administrador de sistemas, quiero automatizar el despliegue continuo (CD) del proyecto
+              para garantizar entregas frecuentes y confiables del producto.
             </td>
-            <td>DevOps</td>
+            <td>Alta</td>
+            <td>8</td>
           </tr>
 
           <tr>
             <td>US13</td>
             <td>
-              <strong>Configurar GitHub Pages #3</strong><br>
-              Redactar el artículo técnico final documentando todo el proceso del proyecto.
+              <strong>Redactar artículo técnico final en GitHub Pages</strong><br>
+              Como usuario del proyecto, quiero acceder al artículo técnico final en GitHub Pages
+              para conocer el proceso completo del proyecto y las decisiones tomadas.
             </td>
-            <td>Documentation</td>
+            <td>Media</td>
+            <td>13</td>
           </tr>
 
         </tbody>
