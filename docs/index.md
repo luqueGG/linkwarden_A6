@@ -83,9 +83,9 @@ Linkwarden proporciona herramientas modernas para gestionar y preservar contenid
 | **Dependencias** | Ninguna |
 
 **Descripción:**
-> Como administrador de sistemas,
+> Como investigador,
 > quiero mapear la arquitectura de Linkwarden,
-> para comprender el flujo de datos y garantizar la correcta administración del sistema.
+> para comprender el flujo de datos y documentar la estructura del sistema.
 
 **Criterios de Aceptación:**
 1. El sistema debe documentar la arquitectura general (frontend, backend, base de datos, worker).
@@ -114,9 +114,9 @@ Linkwarden proporciona herramientas modernas para gestionar y preservar contenid
 | **Dependencias** | US01 - Mapear la arquitectura de Linkwarden |
 
 **Descripción:**
-> Como administrador de sistemas,
+> Como investigador,
 > quiero configurar el entorno Docker de Linkwarden,
-> para garantizar un ambiente de desarrollo reproducible y consistente.
+> para garantizar un ambiente de estudio reproducible y consistente.
 
 **Criterios de Aceptación:**
 1. El sistema debe proporcionar un archivo docker-compose.yml con todos los servicios necesarios.
@@ -145,7 +145,7 @@ Linkwarden proporciona herramientas modernas para gestionar y preservar contenid
 | **Dependencias** | Ninguna |
 
 **Descripción:**
-> Como gerente del proyecto,
+> Como docente,
 > quiero registrar el Product Backlog en GitHub Projects,
 > para organizar y priorizar el trabajo del equipo de desarrollo.
 
@@ -176,7 +176,7 @@ Linkwarden proporciona herramientas modernas para gestionar y preservar contenid
 | **Dependencias** | US02 - Configurar el entorno Docker |
 
 **Descripción:**
-> Como usuario del sistema,
+> Como usuario promedio,
 > quiero validar la ejecución local de Linkwarden,
 > para asegurarme de que la aplicación funciona correctamente en mi equipo.
 
@@ -207,7 +207,7 @@ Linkwarden proporciona herramientas modernas para gestionar y preservar contenid
 | **Dependencias** | US03 - Registrar el Product Backlog |
 
 **Descripción:**
-> Como usuario del proyecto,
+> Como usuario promedio,
 > quiero acceder a la documentación técnica publicada en GitHub Pages,
 > para conocer el funcionamiento, la arquitectura y la configuración del sistema.
 
@@ -244,7 +244,7 @@ Linkwarden proporciona herramientas modernas para gestionar y preservar contenid
 | **Dependencias** | US02 - Configurar el entorno Docker |
 
 **Descripción:**
-> Como administrador de sistemas,
+> Como investigador,
 > quiero implementar un pipeline de integración continua (CI),
 > para automatizar la compilación y ejecución de pruebas del proyecto.
 
@@ -275,7 +275,7 @@ Linkwarden proporciona herramientas modernas para gestionar y preservar contenid
 | **Dependencias** | US06 - Implementar pipeline CI |
 
 **Descripción:**
-> Como stakeholder del proyecto,
+> Como docente,
 > quiero acceder a una demo funcional en un entorno de staging,
 > para validar el producto antes de su entrega final.
 
@@ -306,7 +306,7 @@ Linkwarden proporciona herramientas modernas para gestionar y preservar contenid
 | **Dependencias** | US03 - Registrar el Product Backlog |
 
 **Descripción:**
-> Como stakeholder del proyecto,
+> Como investigador,
 > quiero consultar las decisiones técnicas registradas en Issues,
 > para mantener la trazabilidad del proyecto y justificar las elecciones tecnológicas.
 
@@ -337,7 +337,7 @@ Linkwarden proporciona herramientas modernas para gestionar y preservar contenid
 | **Dependencias** | US06 - Implementar pipeline CI |
 
 **Descripción:**
-> Como administrador del proyecto,
+> Como investigador,
 > quiero establecer un proceso de revisión de código colaborativa,
 > para asegurar la calidad del software y el cumplimiento de estándares.
 
@@ -368,7 +368,7 @@ Linkwarden proporciona herramientas modernas para gestionar y preservar contenid
 | **Dependencias** | US05 - Publicar documentación técnica en GitHub Pages |
 
 **Descripción:**
-> Como usuario del proyecto,
+> Como usuario promedio,
 > quiero consultar la documentación técnica actualizada en GitHub Pages,
 > para mantenerme informado sobre los avances del proyecto.
 
@@ -405,7 +405,7 @@ Linkwarden proporciona herramientas modernas para gestionar y preservar contenid
 | **Dependencias** | US09 - Establecer revisión de código colaborativa |
 
 **Descripción:**
-> Como usuario de Linkwarden,
+> Como usuario promedio,
 > quiero que se implementen mejoras finales en la aplicación,
 > para disfrutar de un producto estable, completo y listo para su uso.
 
@@ -436,7 +436,7 @@ Linkwarden proporciona herramientas modernas para gestionar y preservar contenid
 | **Dependencias** | US06 - Implementar pipeline CI |
 
 **Descripción:**
-> Como administrador de sistemas,
+> Como investigador,
 > quiero automatizar el despliegue continuo (CD) del proyecto,
 > para garantizar entregas frecuentes y confiables del producto.
 
@@ -467,7 +467,7 @@ Linkwarden proporciona herramientas modernas para gestionar y preservar contenid
 | **Dependencias** | US10 - Actualizar documentación técnica en GitHub Pages |
 
 **Descripción:**
-> Como usuario del proyecto,
+> Como usuario promedio,
 > quiero acceder al artículo técnico final en GitHub Pages,
 > para conocer el proceso completo del proyecto y las decisiones tomadas.
 
