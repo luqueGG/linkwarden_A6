@@ -26,7 +26,7 @@
   9. Sprint Retrospective
   10. Resumen final
 
-- [GitHub Project](https://github.com/users/luqueGG/projects/7) — Tablero con las 21 US, Sprints 1 y 2 completados, Sprint 3 en curso.
+- [GitHub Project](https://github.com/users/luqueGG/projects/7) — Tablero con las 21 US, 3 Sprints completados al 100%.
 
 ## Stack Tecnológico
 

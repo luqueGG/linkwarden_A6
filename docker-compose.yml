@@ -26,3 +26,9 @@ services:
       - .env
     volumes:
       - ./meili_data:/meili_data
+  tunnel:
+    image: cloudflare/cloudflared
+    restart: always
+    command: tunnel --url http://linkwarden:3000
+    depends_on:
+      - linkwarden

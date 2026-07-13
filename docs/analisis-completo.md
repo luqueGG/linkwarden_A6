@@ -938,19 +938,19 @@ Linkwarden es un gestor de marcadores (bookmarks) colaborativo, auto-hospedado y
 | US12 — Archivar páginas web automáticamente | ✅ Done |
 | US13 — Visualizar versiones preservadas | ✅ Done |
 
-### Sprint 3 — EN CURSO  (0/47 SP)
+### Sprint 3 — COMPLETADO ✅ (47/47 SP)
 
 | US | SP | Estado |
 |---|---|---|
-| US11 — Fusionar y eliminar etiquetas | 3 | 📋 To Do |
-| US14 — Subir archivos como marcadores | 5 | 📋 To Do |
-| US15 — Compartir colecciones con otros usuarios | 5 | 📋 To Do |
-| US16 — Gestionar permisos de miembros | 5 | 📋 To Do |
-| US17 — Publicar colección pública con RSS | 5 | 📋 To Do |
-| US18 — Gestionar API tokens | 3 | 📋 To Do |
-| US19 — Importar marcadores desde otros servicios | 8 | 📋 To Do |
-| US20 — Administrar usuarios (panel admin) | 5 | 📋 To Do |
-| US21 — Gestionar suscripción y facturación | 8 | 📋 To Do |
+| US11 — Fusionar y eliminar etiquetas | 3 | ✅ Done |
+| US14 — Subir archivos como marcadores | 5 | ✅ Done |
+| US15 — Compartir colecciones con otros usuarios | 5 | ✅ Done |
+| US16 — Gestionar permisos de miembros | 5 | ✅ Done |
+| US17 — Publicar colección pública con RSS | 5 | ✅ Done |
+| US18 — Gestionar API tokens | 3 | ✅ Done |
+| US19 — Importar marcadores desde otros servicios | 8 | ✅ Done |
+| US20 — Administrar usuarios (panel admin) | 5 | ✅ Done |
+| US21 — Gestionar suscripción y facturación | 8 | ✅ Done |
 
 ---
 
@@ -1071,6 +1071,51 @@ Linkwarden es un gestor de marcadores (bookmarks) colaborativo, auto-hospedado y
 > **Hoy:** Sprint Planning Sprint 3. Seleccionamos US11 + US14-US21 (47 SP).
 > **Bloqueos:** Ninguno. El equipo está alineado para arrancar el sprint final.
 
+**Día 22 — Martes**
+> **Ayer:** Sprint Planning completado. Backlog definido.
+> **Hoy:** Empezar US14 (Subir archivos) y US11 (Fusionar etiquetas). Configurar almacenamiento S3.
+> **Bloqueos:** Ninguno.
+
+**Día 23 — Miércoles**
+> **Ayer:** Endpoint POST /api/v1/archives funcionando. UI de fusión de tags avanzando.
+> **Hoy:** Terminar vista previa de archivos subidos. Empezar US15 (Compartir colecciones).
+> **Bloqueos:** Validar tamaño máximo de archivo en frontend.
+
+**Día 24 — Jueves**
+> **Ayer:** Carga de archivos completa con preview. Modal de invitación de miembros en progreso.
+> **Hoy:** Terminar modal de invitación. Empezar endpoints de gestión de miembros.
+> **Bloqueos:** Pendiente definir flujo de notificaciones por email.
+
+**Día 25 — Viernes**
+> **Ayer:** Modal de invitación listo. Endpoints de miembros funcionando.
+> **Hoy:** Empezar US16 (Permisos). Implementar middleware de autorización.
+> **Bloqueos:** Los permisos deben validarse en cada operación CRUD.
+
+**Día 26 — Lunes (Semana 2)**
+> **Ayer:** Middleware de permisos implementado. UI de asignación de permisos en progreso.
+> **Hoy:** Terminar UI de permisos. Empezar US17 (Colección pública + RSS).
+> **Bloqueos:** Ninguno.
+
+**Día 27 — Martes**
+> **Ayer:** Permisos completados. Toggle de visibilidad pública y feed RSS funcionando.
+> **Hoy:** Empezar US18 (API tokens). Crear página settings/access-tokens.tsx.
+> **Bloqueos:** Ninguno.
+
+**Día 28 — Miércoles**
+> **Ayer:** CRUD de tokens completo. Middleware de autenticación por token listo.
+> **Hoy:** Empezar US19 (Importación). Implementar importación desde HTML.
+> **Bloqueos:** El worker de migración necesita pruebas con archivos grandes.
+
+**Día 29 — Jueves**
+> **Ayer:** Importación desde HTML, Pocket, Wallabag y Omnivore funcionando.
+> **Hoy:** Empezar US20 (Panel admin) y US21 (Suscripción Stripe).
+> **Bloqueos:** Webhook de Stripe necesita entorno de pruebas.
+
+**Día 30 — Viernes (Fin Sprint 3)**
+> **Ayer:** Panel admin con CRUD de usuarios listo. Stripe Checkout y webhook integrados.
+> **Hoy:** Sprint Review Sprint 3. 47/47 SP completados. Proyecto finalizado.
+> **Bloqueos:** Ninguno. Sprint completado exitosamente.
+
 ---
 
 ## 8. Sprint Review — Sprint 1
@@ -1142,35 +1187,98 @@ Linkwarden es un gestor de marcadores (bookmarks) colaborativo, auto-hospedado y
 
 ---
 
-## 10. Sprint Retrospective — Sprint 1 y 2
+## 10. Sprint Review — Sprint 3
 
-### Qué salió bien 
+### Historias Completadas
 
-1. **Planificación realista:** 100% de completitud en ambos Sprints. Las estimaciones fueron precisas.
-2. **Arquitectura desacoplada:** Separar worker de archivado del frontend permitió desarrollo paralelo.
-3. **Sistema de búsqueda:** Meilisearch ofreció resultados en milisegundos desde la primera integración.
-4. **Preservación completa:** Los 4 formatos de archivado funcionan correctamente con cola de procesamiento.
-5. **MVP sólido:** El producto ya cubre el ciclo completo: guardar → organizar → buscar → preservar.
+| US | Título | SP | Estado |
+|---|---|---|---|
+| US11 | Fusionar y eliminar etiquetas masivamente | 3 | ✅ Completado |
+| US14 | Subir archivos como marcadores | 5 | ✅ Completado |
+| US15 | Compartir colecciones con otros usuarios | 5 | ✅ Completado |
+| US16 | Gestionar permisos de miembros en colecciones | 5 | ✅ Completado |
+| US17 | Publicar colección como pública con RSS | 5 | ✅ Completado |
+| US18 | Gestionar API tokens | 3 | ✅ Completado |
+| US19 | Importar marcadores desde otros servicios | 8 | ✅ Completado |
+| US20 | Administrar usuarios (panel admin) | 5 | ✅ Completado |
+| US21 | Gestionar suscripción y facturación | 8 | ✅ Completado |
+| **Total** | | **47/47** | **100%** |
 
-### Qué se puede mejorar 
+### Incremento Entregado
 
-1. **Cobertura de pruebas:** Faltan tests unitarios en los controladores. Se agregaron al DoD pero no se cumplió completamente.
-2. **Documentación de API:** Los endpoints no tienen documentación OpenAPI. Difiero a Sprint 3.
-3. **Monitoreo del worker:** La cola de archivado carece de métricas y logs estructurados.
-4. **Rendimiento en listas grandes:** La carga de colecciones con +1000 links muestra latencia. Optimizar con paginación por cursor.
+- Fusión de etiquetas duplicadas y eliminación masiva.
+- Subida de archivos (PDF, imágenes, HTML) como marcadores con almacenamiento local/S3.
+- Compartición de colecciones con invitación por correo o username.
+- Sistema granular de permisos (crear, editar, eliminar) por miembro en colecciones compartidas.
+- Colecciones públicas con URL accesible sin autenticación y feed RSS.
+- API tokens con autenticación por header y registro de último uso.
+- Importación desde HTML, Pocket, Wallabag y Omnivore con procesamiento en segundo plano.
+- Panel de administración con CRUD de usuarios y estadísticas del worker.
+- Sistema de suscripción Stripe: checkout, webhook, período de prueba y gestión de asientos.
 
-### Acciones de Mejora 
+### Velocidad del Equipo
 
-| Acción | Responsable | Sprint |
-|---|---|---|
-| Agregar tests unitarios a controladores | Equipo | Sprint 3 |
-| Documentar endpoints con OpenAPI | Dev 1 | Sprint 3 |
-| Implementar logging estructurado en worker | Dev 2 | Sprint 3 |
-| Optimizar paginación por cursor en listas | Dev 3 | Sprint 3 |
+- Story Points planificados: 47
+- Story Points completados: 47
+- Velocidad: **47 SP** (~23.5 SP/semana)
+
+### Lecciones Técnicas
+
+- La importación desde múltiples formatos requiere un worker dedicado para no bloquear el hilo principal.
+- Stripe webhook debe verificarse con firma para evitar falsificaciones.
+- La sincronización de índices Meilisearch debe dispararse también en la importación masiva.
 
 ---
 
-## 11. Resumen Final
+## 11. Sprint Retrospective — Sprint 3
+
+### Qué salió bien 
+
+1. **Planificación ambiciosa cumplida:** 47 SP completados en un solo Sprint, el más grande de los tres.
+2. **Paralelismo efectivo:** Las US de importación, suscripción y admin se desarrollaron en paralelo sin conflictos.
+3. **Colaboración como diferenciador:** El sistema de permisos granulares y colecciones públicas recibió buena recepción.
+4. **Cobertura funcional completa:** Las 47 funcionalidades reales del proyecto están cubiertas por las 21 US.
+
+### Qué se puede mejorar 
+
+1. **Testing automatizado:** Aunque se agregaron tests, la cobertura sigue siendo baja en los módulos de colaboración y pagos.
+2. **Documentación de API:** Quedó pendiente la documentación OpenAPI. Se difiere a mantenimiento continuo.
+3. **Rendimiento del worker:** La cola de archivado con muchos links simultáneos puede saturar el contenedor.
+4. **Manejo de errores en importación:** Archivos malformados pueden romper la migración sin feedback claro.
+
+### Acciones de Mejora (para el siguiente ciclo)
+
+| Acción | Responsable |
+|---|---|
+| Implementar tests E2E para flujos de colaboración | Equipo |
+| Generar documentación OpenAPI con Swagger | Dev 1 |
+| Agregar rate limiting al worker de archivado | Dev 2 |
+| Mejorar validación y mensajes de error en importación | Dev 3 |
+
+---
+
+## 12. Retrospectiva General — Proyecto Completo
+
+### Qué salió bien en todo el proyecto
+
+1. **100% de completitud:** Los 3 Sprints se completaron al 100% (32 + 39 + 47 = 118 SP).
+2. **Estimaciones precisas:** Las estimaciones de Story Points se mantuvieron consistentes contra la velocidad real.
+3. **Priorización correcta:** El MVP (Sprint 1) entregó valor temprano; el diferenciador (Sprint 2) se consolidó; la madurez (Sprint 3) redondeó el producto.
+4. **Documentación basada en código real:** Cada funcionalidad documentada existe realmente en el código fuente de Linkwarden.
+
+### Qué se puede mejorar a nivel general
+
+1. **Deuda técnica:** Algunos módulos (como el router de API) tienen lógica densa que podría refactorizarse.
+2. **Pruebas:** La cobertura de tests es el aspecto más débil del proyecto real.
+3. **Monitorización:** El worker carece de dashboards de rendimiento y alertas.
+
+### Conclusión
+
+El ejercicio demuestra que Linkwarden, con 47 funcionalidades reales distribuidas en 21 historias de usuario y 3 sprints de 2 semanas, es un proyecto que aplica prácticas sólidas de ingeniería de software. La reconstrucción retrospectiva con Scrum + Kanban evidencia que el proyecto real sigue un flujo de trabajo consistente con metodologías ágiles, aunque su desarrollo real haya sido orgánico y no necesariamente siguiendo Scrum al pie de la letra.
+
+---
+
+## 13. Resumen Final
 
 | Métrica | Valor |
 |---|---|
@@ -1178,9 +1286,11 @@ Linkwarden es un gestor de marcadores (bookmarks) colaborativo, auto-hospedado y
 | Total de Historias de Usuario | 21 (US01–US21) |
 | Total de Story Points | 118 SP |
 | Sprints planificados | 3 (× 2 semanas) |
-| SP completados (Sprints 1 y 2) | 71 |
-| SP planificados (Sprint 3, en curso) | 47 |
-| Velocidad promedio | ~35.5 SP/Sprint |
+| Sprint 1 completado | 32/32 SP ✅ |
+| Sprint 2 completado | 39/39 SP ✅ |
+| Sprint 3 completado | 47/47 SP ✅ |
+| **Total completado** | **118/118 SP — 100%** ✅ |
+| Velocidad promedio | ~39.3 SP/Sprint |
 | Duración total estimada | 6 semanas (~1.5 meses) |
 | Funcionalidades reales cubiertas | 47 |
 | Modelos de datos analizados | 14 |
